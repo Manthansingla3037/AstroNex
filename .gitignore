@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend_new/node_modules/
+
+# Build
+dist/
+build/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Large lunar datasets
+data/raw/
+data/real/
+data/processed/
+data/processed_v2/
+
+# Large scientific files
+*.img
+*.IMG
+*.cub
+*.fits
+*.h5
+*.hdf
+*.hdf5
+*.npy
+*.npz
+*.bin
+*.dat
+
+# Generated backend outputs
+backend/outputs/
+
+# Old frontend
+frontend/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
