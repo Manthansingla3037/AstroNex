@@ -50,3 +50,5 @@ frontend/
 # Python cache
 **/__pycache__/
 **/*.pyc
+
+external_datasets/
