@@ -26,16 +26,16 @@ MODEL_PATH = (
 TEST_LR_DIR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
-    / "test"
+    / "v2_dataset"
+    / "validation"
     / "LR"
 )
 
 TEST_HR_DIR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
-    / "test"
+    / "v2_dataset"
+    / "validation"
     / "HR"
 )
 

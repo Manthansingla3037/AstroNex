@@ -18,7 +18,7 @@ PROJECT_ROOT = Path(r"C:\AstroNex")
 TRAIN_LR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
+    / "v2_dataset"
     / "train"
     / "LR"
 )
@@ -26,7 +26,7 @@ TRAIN_LR = (
 TRAIN_HR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
+    / "v2_dataset"
     / "train"
     / "HR"
 )
@@ -34,7 +34,7 @@ TRAIN_HR = (
 VAL_LR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
+    / "v2_dataset"
     / "validation"
     / "LR"
 )
@@ -42,7 +42,7 @@ VAL_LR = (
 VAL_HR = (
     PROJECT_ROOT
     / "data"
-    / "processed_v2"
+    / "v2_dataset"
     / "validation"
     / "HR"
 )
@@ -59,11 +59,14 @@ MODEL_PATH = MODEL_DIR / "lunar_sr_v2_best.pth"
 
 DEVICE = torch.device("cpu")
 
-BATCH_SIZE = 4
 
-EPOCHS = 15
+BATCH_SIZE = 8
+
+EPOCHS = 30
 
 LEARNING_RATE = 0.0001
+
+SCHEDULER_PATIENCE = 5   # will use below
 
 NUM_WORKERS = 0
 
@@ -149,6 +152,13 @@ criterion = nn.L1Loss()
 optimizer = torch.optim.Adam(
     model.parameters(),
     lr=LEARNING_RATE
+)
+
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer,
+    mode='min',
+    patience=5,
+    factor=0.5
 )
 
 
@@ -290,6 +300,8 @@ for epoch in range(1, EPOCHS + 1):
     )
 
     print(status)
+
+    scheduler.step(val_loss)
 
     print("-" * 70)
     print()

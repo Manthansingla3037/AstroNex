@@ -1,0 +1,15 @@
+AstroNex V3 Test Evaluation
+===========================
+Images evaluated: 32
+
+Bicubic PSNR: 25.7691 dB
+V3 PSNR: 26.9835 dB
+PSNR gain: +1.2145 dB
+
+Bicubic SSIM: 0.6713
+V3 SSIM: 0.6738
+SSIM gain: +0.0025
+
+Bicubic RMSE: 0.052528
+V3 RMSE: 0.045068
+RMSE change: -0.007459
